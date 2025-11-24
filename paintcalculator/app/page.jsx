@@ -1,5 +1,6 @@
+"use client";
+
 import { useState } from "react";
-import { rotateCcw } from "lucid-react";
 
 export default function PaintCalculator() {
   const [formData, setFormData] = useState({
@@ -194,7 +195,7 @@ export default function PaintCalculator() {
                 onClick={resetForm}
                 className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg transition flex items-center gap-2"
               >
-                <RotateCcw size={20} />
+                <span className="text-lg">↻</span>
                 Réinitialiser
               </button>
             </div>
