@@ -80,22 +80,20 @@ export default function PaintCalculator() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4">
-      <div className="max-w-2xl mx-auto">
-        <div className="bg-white rounded-lg shadow-lg p-6">
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">
-            🎨 Calculateur de Peinture
-          </h1>
-          <p className="text-gray-600 mb-6">
-            Calculez la quantité de peinture nécessaire pour votre pièce
-          </p>
+    <div className="paint-calculator">
+      <div className="paint-calculator__container">
+        <div className="paint-calculator__card">
+          <header className="paint-calculator__header">
+            <h1 className="paint-calculator__title">🎨 Calculateur de Peinture</h1>
+            <p className="paint-calculator__subtitle">
+              Calculez la quantité de peinture nécessaire pour votre pièce
+            </p>
+          </header>
 
-          <div className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Longueur (m) *
-                </label>
+          <div className="paint-calculator__form">
+            <div className="paint-calculator__grid">
+              <div className="paint-calculator__field">
+                <label className="paint-calculator__label">Longueur (m) *</label>
                 <input
                   type="number"
                   name="longueur"
@@ -103,14 +101,12 @@ export default function PaintCalculator() {
                   onChange={handleChange}
                   placeholder="Ex: 4"
                   step="0.1"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  className="paint-calculator__input"
                 />
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Largeur (m) *
-                </label>
+              <div className="paint-calculator__field">
+                <label className="paint-calculator__label">Largeur (m) *</label>
                 <input
                   type="number"
                   name="largeur"
@@ -118,12 +114,12 @@ export default function PaintCalculator() {
                   onChange={handleChange}
                   placeholder="Ex: 3"
                   step="0.1"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  className="paint-calculator__input"
                 />
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
+              <div className="paint-calculator__field">
+                <label className="paint-calculator__label">
                   Hauteur sous plafond (m) *
                 </label>
                 <input
@@ -133,14 +129,12 @@ export default function PaintCalculator() {
                   onChange={handleChange}
                   placeholder="Ex: 2.5"
                   step="0.1"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  className="paint-calculator__input"
                 />
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Nombre de portes/fenêtres
-                </label>
+              <div className="paint-calculator__field">
+                <label className="paint-calculator__label">Nombre de portes/fenêtres</label>
                 <input
                   type="number"
                   name="ouvertures"
@@ -148,14 +142,12 @@ export default function PaintCalculator() {
                   onChange={handleChange}
                   placeholder="Ex: 2"
                   min="0"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  className="paint-calculator__input"
                 />
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Rendement (m²/litre) *
-                </label>
+              <div className="paint-calculator__field">
+                <label className="paint-calculator__label">Rendement (m²/litre) *</label>
                 <input
                   type="number"
                   name="rendement"
@@ -163,19 +155,17 @@ export default function PaintCalculator() {
                   onChange={handleChange}
                   placeholder="Ex: 9"
                   step="0.5"
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  className="paint-calculator__input"
                 />
               </div>
 
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Nombre de couches *
-                </label>
+              <div className="paint-calculator__field">
+                <label className="paint-calculator__label">Nombre de couches *</label>
                 <select
                   name="couches"
                   value={formData.couches}
                   onChange={handleChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                  className="paint-calculator__input paint-calculator__input--select"
                 >
                   <option value="1">1 couche</option>
                   <option value="2">2 couches</option>
@@ -184,88 +174,78 @@ export default function PaintCalculator() {
               </div>
             </div>
 
-            <div className="flex gap-3 pt-4">
+            <div className="paint-calculator__actions">
               <button
                 onClick={calculer}
-                className="flex-1 bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-lg transition"
+                className="paint-calculator__button paint-calculator__button--primary"
               >
                 Calculer
               </button>
               <button
                 onClick={resetForm}
-                className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-lg transition flex items-center gap-2"
+                className="paint-calculator__button paint-calculator__button--secondary"
               >
-                <span className="text-lg">↻</span>
+                <span className="paint-calculator__button-icon">↻</span>
                 Réinitialiser
               </button>
             </div>
           </div>
 
           {results && (
-            <div className="mt-8 pt-8 border-t border-gray-200">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">
-                Résultats
-              </h2>
+            <section className="paint-results">
+              <h2 className="paint-results__title">Résultats</h2>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <p className="text-sm text-gray-600">Surface au sol</p>
-                  <p className="text-2xl font-bold text-gray-800">
+              <div className="paint-results__grid">
+                <div className="paint-results__card">
+                  <p className="paint-results__label">Surface au sol</p>
+                  <p className="paint-results__value">
                     {results.surfaceSol.toFixed(2)} m²
                   </p>
                 </div>
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <p className="text-sm text-gray-600">Périmètre</p>
-                  <p className="text-2xl font-bold text-gray-800">
+                <div className="paint-results__card">
+                  <p className="paint-results__label">Périmètre</p>
+                  <p className="paint-results__value">
                     {results.perimetre.toFixed(2)} m
                   </p>
                 </div>
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <p className="text-sm text-gray-600">
-                    Surface des murs (brute)
-                  </p>
-                  <p className="text-2xl font-bold text-gray-800">
+                <div className="paint-results__card">
+                  <p className="paint-results__label">Surface des murs (brute)</p>
+                  <p className="paint-results__value">
                     {results.surfaceMurs.toFixed(2)} m²
                   </p>
                 </div>
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <p className="text-sm text-gray-600">Surface à déduire</p>
-                  <p className="text-2xl font-bold text-gray-800">
+                <div className="paint-results__card">
+                  <p className="paint-results__label">Surface à déduire</p>
+                  <p className="paint-results__value">
                     {results.surfaceOuvertures.toFixed(2)} m²
                   </p>
                 </div>
               </div>
 
-              <div className="bg-indigo-50 p-6 rounded-lg border-2 border-indigo-200 mb-6">
-                <p className="text-sm text-gray-600 mb-2">
-                  Surface finale à peindre
-                </p>
-                <p className="text-3xl font-bold text-indigo-600 mb-4">
+              <div className="paint-results__highlight paint-results__highlight--primary">
+                <p className="paint-results__label">Surface finale à peindre</p>
+                <p className="paint-results__value paint-results__value--xl">
                   {results.surfaceFinale.toFixed(2)} m²
                 </p>
-                <p className="text-sm text-gray-600 mb-2">
+                <p className="paint-results__hint">
                   ({results.couches} couche{results.couches > 1 ? "s" : ""})
                 </p>
               </div>
 
-              <div className="bg-green-50 p-6 rounded-lg border-2 border-green-200 mb-6">
-                <p className="text-sm text-gray-600 mb-2">
-                  Peinture nécessaire
-                </p>
-                <p className="text-4xl font-bold text-green-600">
+              <div className="paint-results__highlight paint-results__highlight--success">
+                <p className="paint-results__label">Peinture nécessaire</p>
+                <p className="paint-results__value paint-results__value--xxl">
                   {results.quantitePeinture.toFixed(2)} L
                 </p>
               </div>
 
-              <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-                <p className="text-sm font-medium text-gray-700 mb-2">
-                  📦 Suggestion de pots :
-                </p>
-                <p className="text-lg text-blue-700 font-semibold">
+              <div className="paint-results__suggestion">
+                <p className="paint-results__suggestion-label">📦 Suggestion de pots :</p>
+                <p className="paint-results__suggestion-value">
                   {getSuggestionsPots(results.quantitePeinture)}
                 </p>
               </div>
-            </div>
+            </section>
           )}
         </div>
       </div>

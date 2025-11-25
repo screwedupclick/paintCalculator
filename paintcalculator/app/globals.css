@@ -1,1 +1,132 @@
+/* stylelint-disable at-rule-no-unknown */
 @import "tailwindcss";
+
+@layer components {
+  .paint-calculator {
+    @apply min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 px-4 py-6 sm:px-6 lg:px-12 lg:py-10;
+  }
+
+  .paint-calculator__container {
+    @apply mx-auto max-w-4xl;
+  }
+
+  .paint-calculator__card {
+    @apply rounded-2xl bg-white p-6 shadow-xl sm:p-8 lg:p-10;
+  }
+
+  .paint-calculator__header {
+    @apply mb-8 space-y-2 text-center lg:text-left;
+  }
+
+  .paint-calculator__title {
+    @apply text-3xl font-bold text-gray-800 lg:text-4xl;
+  }
+
+  .paint-calculator__subtitle {
+    @apply text-base text-gray-600 lg:text-lg;
+  }
+
+  .paint-calculator__form {
+    @apply space-y-6;
+  }
+
+  .paint-calculator__grid {
+    @apply grid gap-4 sm:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .paint-calculator__field {
+    @apply flex flex-col gap-2;
+  }
+
+  .paint-calculator__label {
+    @apply text-sm font-medium text-gray-700;
+  }
+
+  .paint-calculator__input {
+    @apply w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-gray-900 shadow-sm transition focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500;
+  }
+
+  .paint-calculator__input--select {
+    @apply pr-8;
+  }
+
+  .paint-calculator__actions {
+    @apply flex flex-col gap-3 pt-2 sm:flex-row;
+  }
+
+  .paint-calculator__button {
+    @apply flex flex-1 items-center justify-center gap-2 rounded-lg px-4 py-3 text-base font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
+  }
+
+  .paint-calculator__button--primary {
+    @apply bg-indigo-600 text-white hover:bg-indigo-700 focus-visible:outline-indigo-600;
+  }
+
+  .paint-calculator__button--secondary {
+    @apply bg-gray-100 text-gray-800 hover:bg-gray-200 focus-visible:outline-gray-400;
+  }
+
+  .paint-calculator__button-icon {
+    @apply text-lg;
+  }
+
+  .paint-results {
+    @apply mt-10 border-t border-gray-200 pt-8;
+  }
+
+  .paint-results__title {
+    @apply mb-6 text-center text-2xl font-bold text-gray-800 lg:text-left;
+  }
+
+  .paint-results__grid {
+    @apply grid gap-4 sm:grid-cols-2;
+  }
+
+  .paint-results__card {
+    @apply rounded-xl bg-gray-50 p-4 text-center sm:text-left;
+  }
+
+  .paint-results__label {
+    @apply text-sm text-gray-600;
+  }
+
+  .paint-results__value {
+    @apply text-2xl font-bold text-gray-800;
+  }
+
+  .paint-results__highlight {
+    @apply rounded-xl border-2 p-6 text-center;
+  }
+
+  .paint-results__highlight--primary {
+    @apply border-indigo-200 bg-indigo-50;
+  }
+
+  .paint-results__highlight--success {
+    @apply border-green-200 bg-green-50;
+  }
+
+  .paint-results__value--xl {
+    @apply text-3xl text-indigo-600;
+  }
+
+  .paint-results__value--xxl {
+    @apply text-4xl text-green-600;
+  }
+
+  .paint-results__hint {
+    @apply mt-2 text-sm text-gray-600;
+  }
+
+  .paint-results__suggestion {
+    @apply rounded-xl border border-blue-200 bg-blue-50 p-5 text-center sm:text-left;
+  }
+
+  .paint-results__suggestion-label {
+    @apply mb-2 text-sm font-medium text-gray-700;
+  }
+
+  .paint-results__suggestion-value {
+    @apply text-lg font-semibold text-blue-700;
+  }
+}
